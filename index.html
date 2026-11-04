@@ -28,11 +28,21 @@
   .card.pending { background:#f4f4f4; border-top-color:#c4c4c4; }
   .card.pending h2 { color:#555; }
   .card.pending p { color:#666; }
+  .panel { display:none; max-width:26rem; margin:2rem auto 0; background:#fff; border-radius:10px; border-top:6px solid var(--blue); box-shadow:0 1px 4px rgba(0,0,0,.08); padding:1.25rem 1.25rem 1rem; scroll-margin-top:1rem; }
+  .panel:target { display:block; }
+  .panel h2 { margin:0 0 .2rem; font-size:1.2rem; color:var(--dark); }
+  .panel p { margin:0 0 .4rem; font-size:.95rem; }
+  .panel label { display:block; margin:.75rem 0 .25rem; font-size:.85rem; }
+  .panel select, .panel textarea, .panel input[type="email"] { width:100%; font:inherit; font-size:.9rem; color:#222; background:#fff; border:1px solid #ccc; border-radius:6px; padding:.4rem .55rem; }
+  .panel textarea { min-height:7rem; resize:vertical; }
+  .panel-actions { display:flex; align-items:center; gap:.75rem; margin-top:.9rem; }
+  .panel button { background:var(--blue); color:#fff; border:0; border-radius:6px; padding:.35rem .8rem; font:inherit; font-size:.9rem; cursor:pointer; }
+  .panel-actions a { font-size:.9rem; }
   footer { text-align:center; color:#777; font-size:.85rem; padding:1.5rem; }
   header h1, header p { text-shadow:0 1px 4px rgba(0,0,0,.45); }
 </style>
 </head>
-<body>
+<body id="top">
 <header>
   <h1>eco-sandbox</h1>
   <p>Simple ecological models to play with. </p>
@@ -78,7 +88,44 @@
     </div>
 
   </div>
+
+  <section class="panel" id="contact">
+    <h2>Contact</h2>
+    <p>Bug reports and suggestions.</p>
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+      <input type="hidden" name="redirect" value="https://eco-sandbox.github.io/#thanks">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+
+      <label for="topic">Topic</label>
+      <select id="topic" name="subject" required>
+        <option value="" selected disabled>Choose a topic</option>
+        <option>Bug in AMF</option>
+        <option>Bug in PhenFit</option>
+        <option>Bug in Rhizosphere priming</option>
+        <option>Suggestion / idea for a new app</option>
+        <option>Other</option>
+      </select>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <label for="reply">Your email (optional, if you'd like a reply)</label>
+      <input id="reply" type="email" name="email" autocomplete="email">
+
+      <div class="panel-actions">
+        <button type="submit">Send</button>
+        <a href="#top">Close</a>
+      </div>
+    </form>
+  </section>
+
+  <section class="panel" id="thanks">
+    <h2>Thanks</h2>
+    <p>Your note was sent.</p>
+    <a href="#top">Back</a>
+  </section>
 </main>
-<footer>eco-sandbox · source on <a href="https://github.com/eco-sandbox">GitHub</a></footer>
+<footer>eco-sandbox · source on <a href="https://github.com/eco-sandbox">GitHub</a> · <a href="#contact">Contact</a></footer>
 </body>
 </html>
