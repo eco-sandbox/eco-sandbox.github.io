@@ -11,15 +11,23 @@
   header { background:linear-gradient(90deg,var(--dark),var(--blue),var(--teal),var(--green),var(--yellow)); color:#fff; padding:3rem 1.5rem 2.5rem; }
   header h1 { margin:0; font-size:2.2rem; letter-spacing:.02em; }
   header p { margin:.5rem 0 0; max-width:42rem; opacity:.95; }
-  main { max-width:60rem; margin:0 auto; padding:2rem 1.5rem 3rem; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(17rem,1fr)); gap:1.25rem; }
+  main { max-width:70rem; margin:0 auto; padding:2rem 1.5rem 3rem; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(17rem,100%),1fr)); gap:1.25rem; }
+  @media (min-width:60rem) {
+    .grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  }
   .card { background:#fff; border-radius:10px; border-top:6px solid var(--teal); box-shadow:0 1px 4px rgba(0,0,0,.08); padding:1.25rem 1.25rem 1rem; display:flex; flex-direction:column; }
   .card h2 { margin:0 0 .4rem; font-size:1.2rem; color:var(--dark); }
+  .card-title { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.35rem .5rem; margin:0 0 .4rem; }
+  .card-title h2 { margin:0; flex:1 0 auto; }
   .card p { margin:0 0 1rem; flex:1; font-size:.95rem; }
+  .badge { flex:none; padding:.1rem .45rem; border-radius:6px; background:#e6e6e6; color:#666; font-size:.68rem; font-weight:600; letter-spacing:.02em; line-height:1.35; white-space:nowrap; }
   .links a { display:inline-block; margin:0 .5rem .4rem 0; padding:.35rem .8rem; border-radius:6px; text-decoration:none; font-size:.9rem; }
   .app { background:var(--blue); color:#fff; }
   .code { border:1px solid var(--blue); color:var(--blue); }
-  .soon { color:#777; font-size:.9rem; font-style:italic; }
+  .card.pending { background:#f4f4f4; border-top-color:#c4c4c4; }
+  .card.pending h2 { color:#555; }
+  .card.pending p { color:#666; }
   footer { text-align:center; color:#777; font-size:.85rem; padding:1.5rem; }
   header h1, header p { text-shadow:0 1px 4px rgba(0,0,0,.45); }
 </style>
@@ -31,6 +39,17 @@
 </header>
 <main>
   <div class="grid">
+
+    <div class="card" style="border-top-color:var(--dark)">
+      <div class="card-title">
+        <h2>AMF</h2>
+        <span class="badge">beta</span>
+      </div>
+      <p>Arbuscular mycorrhizal fungi along the mutualism–parasitism continuum.</p>
+      <div class="links">
+        <a class="app" href="https://eco-sandbox.github.io/AMF-app/">Open app</a>
+      </div>
+    </div>
 
     <div class="card" style="border-top-color:var(--blue)">
       <h2>PhenFit</h2>
@@ -50,10 +69,12 @@
       </div>
     </div>
 
-    <div class="card" style="border-top-color:var(--green)">
-      <h2>AMF model</h2>
-      <p>Arbuscular mycorrhizal fungi along the mutualism–parasitism continuum.</p>
-      <div class="links"><span class="soon">Coming soon</span></div>
+    <div class="card pending">
+      <div class="card-title">
+        <h2>Haldane's sieve</h2>
+        <span class="badge">Coming soon</span>
+      </div>
+      <p>On the oddities of fixing recessive mutations.</p>
     </div>
 
   </div>
