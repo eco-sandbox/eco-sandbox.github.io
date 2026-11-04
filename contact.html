@@ -18,7 +18,7 @@
   .panel h2 { margin:0 0 .2rem; font-size:1.2rem; color:var(--dark); }
   .panel p { margin:0 0 .4rem; font-size:.95rem; }
   .panel label { display:block; margin:.75rem 0 .25rem; font-size:.85rem; }
-  .panel select, .panel textarea, .panel input[type="email"] { width:100%; font:inherit; font-size:.9rem; color:#222; background:#fff; border:1px solid #ccc; border-radius:6px; padding:.4rem .55rem; }
+  .panel select, .panel textarea, .panel input[type="email"], .panel input[type="text"] { width:100%; font:inherit; font-size:.9rem; color:#222; background:#fff; border:1px solid #ccc; border-radius:6px; padding:.4rem .55rem; }
   .panel textarea { min-height:7rem; resize:vertical; }
   .panel-actions { display:flex; align-items:center; gap:.75rem; margin-top:.9rem; }
   .panel button { background:var(--blue); color:#fff; border:0; border-radius:6px; padding:.35rem .8rem; font:inherit; font-size:.9rem; cursor:pointer; }
@@ -53,12 +53,13 @@
       <label for="topic">Topic</label>
       <select id="topic" name="subject" required>
         <option value="" selected disabled>Choose a topic</option>
-        <option>Bug in AMF</option>
-        <option>Bug in PhenFit</option>
-        <option>Bug in Rhizosphere priming</option>
+        <option>Bug report</option>
         <option>Suggestion / idea for a new app</option>
         <option>Other</option>
       </select>
+
+      <label for="app">Which app? (optional)</label>
+      <input id="app" type="text" name="app" autocomplete="off">
 
       <label for="message">Message</label>
       <textarea id="message" name="message" required></textarea>
