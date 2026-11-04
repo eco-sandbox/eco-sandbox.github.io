@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact · eco-sandbox</title>
+<style>
+  :root { --dark:#440154; --blue:#3B528B; --teal:#21908C; --green:#5DC863; --yellow:#FDE725; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:"DejaVu Sans", Verdana, sans-serif; color:#222; background:#fafafa; line-height:1.5; }
+  header { background:linear-gradient(90deg,var(--dark),var(--blue),var(--teal),var(--green),var(--yellow)); color:#fff; padding:3rem 1.5rem 2.5rem; }
+  header h1 { margin:0; font-size:2.2rem; letter-spacing:.02em; }
+  header p { margin:.5rem 0 0; max-width:42rem; opacity:.95; }
+  header a { color:#fff; text-decoration:none; }
+  main { max-width:26rem; margin:0 auto; padding:2rem 1.5rem 3rem; }
+  .back { margin:0 0 .75rem; font-size:.9rem; }
+  .panel { background:#fff; border-radius:10px; border-top:6px solid var(--blue); box-shadow:0 1px 4px rgba(0,0,0,.08); padding:1.25rem 1.25rem 1rem; }
+  .panel h2 { margin:0 0 .2rem; font-size:1.2rem; color:var(--dark); }
+  .panel p { margin:0 0 .4rem; font-size:.95rem; }
+  .panel label { display:block; margin:.75rem 0 .25rem; font-size:.85rem; }
+  .panel select, .panel textarea, .panel input[type="email"] { width:100%; font:inherit; font-size:.9rem; color:#222; background:#fff; border:1px solid #ccc; border-radius:6px; padding:.4rem .55rem; }
+  .panel textarea { min-height:7rem; resize:vertical; }
+  .panel-actions { display:flex; align-items:center; gap:.75rem; margin-top:.9rem; }
+  .panel button { background:var(--blue); color:#fff; border:0; border-radius:6px; padding:.35rem .8rem; font:inherit; font-size:.9rem; cursor:pointer; }
+  #thanks { display:none; }
+  #thanks:target { display:block; }
+  #thanks:target + .panel { display:none; }
+  footer { text-align:center; color:#777; font-size:.85rem; padding:1.5rem; }
+  header h1, header p { text-shadow:0 1px 4px rgba(0,0,0,.45); }
+</style>
+</head>
+<body>
+<header>
+  <h1><a href="index.html">eco-sandbox</a></h1>
+  <p>Bug reports and suggestions.</p>
+</header>
+<main>
+  <p class="back"><a href="index.html">← Back</a></p>
+
+  <section class="panel" id="thanks">
+    <h2>Thanks</h2>
+    <p>Your note was sent.</p>
+    <a href="index.html">Back to the main page</a>
+  </section>
+
+  <section class="panel">
+    <h2>Contact</h2>
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+      <input type="hidden" name="redirect" value="https://eco-sandbox.github.io/contact.html#thanks">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+
+      <label for="topic">Topic</label>
+      <select id="topic" name="subject" required>
+        <option value="" selected disabled>Choose a topic</option>
+        <option>Bug in AMF</option>
+        <option>Bug in PhenFit</option>
+        <option>Bug in Rhizosphere priming</option>
+        <option>Suggestion / idea for a new app</option>
+        <option>Other</option>
+      </select>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <label for="reply">Your email (optional, if you'd like a reply)</label>
+      <input id="reply" type="email" name="email" autocomplete="email">
+
+      <div class="panel-actions">
+        <button type="submit">Send</button>
+      </div>
+    </form>
+  </section>
+</main>
+<footer>eco-sandbox · source on <a href="https://github.com/eco-sandbox">GitHub</a></footer>
+</body>
+</html>
